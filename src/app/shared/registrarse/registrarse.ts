@@ -3,6 +3,7 @@ import { UsuariosService } from '../../service/usuarios-service';
 import { AuthService } from '../../service/auth-service';
 import { Usuarios } from '../../models/usuarios';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-registrarse',
@@ -13,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 export class Registrarse {
 
   private servicioUsuarios = inject(UsuariosService);
+  private router = inject(Router);
 
   //LISTA REACTIVA
   listaUsuarios = signal<Usuarios[]>([]);
@@ -29,7 +31,9 @@ export class Registrarse {
   registrarUsuario() {
     this.servicioUsuarios.postUsuario(this.nuevoUsuario).subscribe(() => {
       alert('Usuario registrado correctamente');
+      this.router.navigate(['/iniciarSesion'])
       this.limpiarFormulario();
+      
     }, error => {
       alert('Error al registrar el usuario');
       console.error(error);

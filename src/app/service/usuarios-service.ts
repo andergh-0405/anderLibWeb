@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, signal } from '@angular/core';
 import { Usuarios } from '../models/usuarios';
 import { Observable } from 'rxjs/internal/Observable';
 import { map } from 'rxjs/internal/operators/map';
@@ -11,6 +11,18 @@ export class UsuariosService {
 
   private http = inject(HttpClient);
   private API_FIREBASE = 'https://anderlib-default-rtdb.firebaseio.com/';
+  usuarioAutenticado = signal<Usuarios | null>(null);
+
+  verUsuarioAutenticado(usuario: Usuarios | null): void {
+    this.usuarioAutenticado.set(usuario);
+  }
+
+  constructor() {
+    const usuarioGuardado = localStorage.getItem('usuario');
+    if (usuarioGuardado) {
+      this.usuarioAutenticado.set(JSON.parse(usuarioGuardado));
+    }
+  }
 
   //Metodo get
   getUsuarios(): Observable<Usuarios[]> {
@@ -42,8 +54,10 @@ export class UsuariosService {
     return this.http.delete<void>(`${this.API_FIREBASE}/usuarios/${id}.json`);
   }
 
-  //Usuario autenticado
-  usuarioAutenticado: Usuarios | null = null;
+  
+  
+
+ 
   
 
 }

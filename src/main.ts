@@ -5,6 +5,5 @@ import { firebaseConfig } from './app/config/firebase.config';
 import { initializeApp } from 'firebase/app';
 
 initializeApp(firebaseConfig);
-
 bootstrapApplication(App, appConfig)
   .catch((err) => console.error(err));
