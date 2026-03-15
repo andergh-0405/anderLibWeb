@@ -5,6 +5,7 @@ import { ContactoPage } from './features/contacto-page/contacto-page';
 import { LoginPage } from './features/login-page/login-page';
 import { IniciarSesion } from './shared/iniciar-sesion/iniciar-sesion';
 import { Registrarse } from './shared/registrarse/registrarse';
+import { PanelAdmin } from './shared/panel-admin/panel-admin';
 
 export const routes: Routes = [
     {path:'',component:HomePage},
@@ -12,6 +13,7 @@ export const routes: Routes = [
     {path:'contacto',component:ContactoPage},
     {path:'login',component:LoginPage},
     {path:'iniciarSesion',component:IniciarSesion},
-    {path:'registrarse',component:Registrarse}
+    {path:'registrarse',component:Registrarse},
+    {path:'dasboard',component:PanelAdmin}
 
 ];
