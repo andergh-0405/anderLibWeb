@@ -1,68 +1,50 @@
-<!-- iniciar-sesion.html -->
 <div class="flex items-center justify-center min-h-screen px-4 py-12 bg-cream relative overflow-hidden">
 
-  <!-- Blobs de fondo -->
-  <div class="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3"
-    style="background: radial-gradient(circle, rgba(122,158,126,.12), transparent 70%)"></div>
-  <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full pointer-events-none translate-y-1/2 -translate-x-1/3"
-    style="background: radial-gradient(circle, rgba(61,97,66,.08), transparent 70%)"></div>
+  <div class="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3 opacity-40"
+    style="background: radial-gradient(circle, rgba(122,158,126,.15), transparent 70%)"></div>
+  <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full pointer-events-none translate-y-1/2 -translate-x-1/3 opacity-30"
+    style="background: radial-gradient(circle, rgba(61,97,66,.1), transparent 70%)"></div>
 
-  <!-- Card -->
-  <div
-    class="flex w-full max-w-sm mx-auto overflow-hidden rounded-3xl shadow-2xl shadow-bark/15 lg:max-w-4xl border border-sage-pale/60">
+  <div class="flex w-full max-w-sm mx-auto overflow-hidden rounded-[2.5rem] shadow-2xl shadow-bark/15 lg:max-w-4xl border border-sage-pale/60 bg-warmwhite">
 
-    <!-- ── PANEL IZQUIERDO: imagen decorativa ── -->
     <div class="hidden lg:block lg:w-1/2 relative overflow-hidden"
       style="background: linear-gradient(160deg, #1C2E1A 0%, #2A3D28 55%, #1A2718 100%);">
 
       <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=75"
-        class="absolute inset-0 w-full h-full object-cover mix-blend-soft-light opacity-20" alt="" />
+        class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30" alt="Librería decorativa" />
 
-      <div class="absolute right-0 top-0 h-full w-[3px]"
-        style="background: linear-gradient(180deg,transparent 5%,#D4A853 35%,#D4A853 65%,transparent 95%); opacity:.45;">
+      <div class="absolute right-0 top-0 h-full w-[2px]"
+        style="background: linear-gradient(180deg, transparent 5%, #D4A853 35%, #D4A853 65%, transparent 95%); opacity: .3;">
       </div>
 
-      <div class="absolute bottom-16 right-8 w-52 h-52 rounded-full opacity-[0.07]"
-        style="background: radial-gradient(circle, #7A9E7E, transparent 70%)"></div>
-      <div class="absolute top-1/4 -left-8 w-36 h-36 rounded-full opacity-[0.08]"
-        style="background: radial-gradient(circle, #D4A853, transparent 70%)"></div>
+      <div class="relative z-10 flex flex-col justify-between h-full p-12">
 
-      <div class="relative z-10 flex flex-col justify-between h-full p-10">
-
-        <!-- Logo -->
-        <a routerLink="/" class="flex items-center gap-2.5">
-          <div class="w-9 h-9 rounded-xl flex items-center justify-center shadow-md"
-            style="background:rgba(61,97,66,.75); border:1px solid rgba(168,197,160,.2);">
-            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-              stroke-linecap="round" stroke-linejoin="round">
+        <a routerLink="/" class="flex items-center gap-3 group">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg transition-transform group-hover:scale-110"
+            style="background:rgba(61,97,66,0.8); border:1px solid rgba(168,197,160,0.3);">
+            <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
             </svg>
           </div>
-          <span class="font-serif text-xl font-semibold" style="color:#F5EDD6">AnderLib</span>
+          <span class="font-serif text-2xl font-semibold tracking-tight" style="color:#F5EDD6">AnderLib</span>
         </a>
 
-        <!-- Quote -->
         <div class="space-y-6">
-          <div class="w-7 h-[2px] opacity-60" style="background:#D4A853"></div>
-          <blockquote class="font-serif text-[1.65rem] leading-[1.35] font-medium" style="color:#F5EDD6">
+          <div class="w-10 h-[2px]" style="background:#D4A853"></div>
+          <blockquote class="font-serif text-3xl leading-[1.3] font-medium" style="color:#F5EDD6">
             "Un lector vive mil vidas antes de morir."
           </blockquote>
-          <p class="text-xs tracking-[.18em] uppercase" style="color:rgba(245,237,214,.4)">— George R.R. Martin</p>
+          <p class="text-xs tracking-[.25em] uppercase font-bold" style="color:rgba(245,237,214,0.5)">— George R.R. Martin</p>
 
-          <!-- Stats -->
-          <div class="flex gap-8 pt-5 border-t" style="border-color:rgba(245,237,214,.1)">
+          <div class="flex gap-10 pt-8 border-t" style="border-color:rgba(245,237,214,0.15)">
             <div>
-              <p class="font-serif text-2xl font-semibold" style="color:#D4A853">12k<span class="text-base">+</span></p>
-              <p class="text-[11px] mt-0.5 uppercase tracking-widest" style="color:rgba(245,237,214,.4)">Títulos</p>
+              <p class="font-serif text-2xl font-bold" style="color:#D4A853">12k<span class="text-sm font-sans ml-0.5">+</span></p>
+              <p class="text-[10px] mt-1 uppercase tracking-widest font-bold" style="color:rgba(245,237,214,0.4)">Títulos</p>
             </div>
             <div>
-              <p class="font-serif text-2xl font-semibold" style="color:#D4A853">10k<span class="text-base">+</span></p>
-              <p class="text-[11px] mt-0.5 uppercase tracking-widest" style="color:rgba(245,237,214,.4)">Lectores</p>
-            </div>
-            <div>
-              <p class="font-serif text-2xl font-semibold" style="color:#D4A853">24<span class="text-base">h</span></p>
-              <p class="text-[11px] mt-0.5 uppercase tracking-widest" style="color:rgba(245,237,214,.4)">Envíos</p>
+              <p class="font-serif text-2xl font-bold" style="color:#D4A853">10k<span class="text-sm font-sans ml-0.5">+</span></p>
+              <p class="text-[10px] mt-1 uppercase tracking-widest font-bold" style="color:rgba(245,237,214,0.4)">Lectores</p>
             </div>
           </div>
         </div>
@@ -70,97 +52,75 @@
       </div>
     </div>
 
-    <!-- ── PANEL DERECHO: formulario ── -->
-    <form (ngSubmit)="iniciarSesion()" class="w-full bg-warmwhite px-8 py-10 lg:w-1/2">
-
-      <!-- Título -->
-      <div class="mb-7">
-        <span class="inline-flex items-center gap-2 text-[11px] font-medium tracking-[.15em] uppercase text-sage mb-3">
-          <span class="w-5 h-px bg-sage-light"></span>Bienvenido de nuevo
-        </span>
-        <h1 class="font-serif text-[2.1rem] leading-none font-semibold text-bark">Iniciar sesión</h1>
-        <p class="text-stone text-sm mt-2">Accede a tu biblioteca personal</p>
-      </div>
-
-      <!-- Email -->
-      <div class="space-y-1.5 mb-4">
-        <label class="text-[11px] font-semibold uppercase tracking-[.12em] text-bark">
-          Correo electrónico
-        </label>
-        <div class="relative">
-          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone/40 pointer-events-none">
-            <svg class="w-[17px] h-[17px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-            </svg>
+    <div class="w-full px-8 py-12 lg:w-1/2 flex flex-col justify-center">
+      <form (ngSubmit)="iniciarSesion()">
+        <div class="mb-10 text-center lg:text-left">
+          <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[.2em] uppercase text-leaf mb-3">
+            <span class="w-5 h-px bg-sage-pale"></span>Bienvenido de nuevo
           </span>
-          <!-- ✅ ngModel vinculado a correo -->
-          <input type="email" [(ngModel)]="correo" name="correo" placeholder="anderlib@ejemplo.com" required class="w-full pl-11 pr-4 py-3.5 rounded-2xl bg-cream border border-sage-pale text-sm text-bark
-                   placeholder-stone/30 transition-all duration-200
-                   focus:border-sage focus:ring-2 focus:ring-sage/20 focus:bg-white" />
+          <h1 class="font-serif text-4xl font-bold text-bark leading-tight">Iniciar sesión</h1>
+          <p class="text-stone text-sm mt-3 italic">Accede a tu biblioteca personal</p>
         </div>
-      </div>
 
-      <!-- Contraseña -->
-      <div class="space-y-1.5 mb-6">
-        <div class="flex items-center justify-between mb-1.5">
-          <label class="text-[11px] font-semibold uppercase tracking-[.12em] text-bark">Contraseña</label>
-          <a routerLink="/recuperar" class="text-xs text-sage hover:text-leaf transition-colors">
-            ¿Olvidaste tu contraseña?
+        <div class="space-y-2 mb-5">
+          <label class="text-[10px] font-bold uppercase tracking-widest text-bark ml-1">Correo electrónico</label>
+          <div class="relative group">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone/40 group-focus-within:text-leaf transition-colors">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+            </span>
+            <input type="email" [(ngModel)]="correo" name="correo" required 
+              placeholder="nombre@ejemplo.com" 
+              class="w-full pl-12 pr-4 py-4 rounded-2xl bg-cream/50 border border-sage-pale text-sm text-bark outline-none transition-all duration-300 focus:border-leaf focus:ring-4 focus:ring-leaf/5 focus:bg-white" />
+          </div>
+        </div>
+
+        <div class="space-y-2 mb-8">
+          <div class="flex items-center justify-between px-1">
+            <label class="text-[10px] font-bold uppercase tracking-widest text-bark">Contraseña</label>
+            <a routerLink="/recuperar" class="text-[11px] font-medium text-leaf hover:text-bark transition-colors underline decoration-leaf/20 underline-offset-4">
+              ¿Olvidaste tu contraseña?
+            </a>
+          </div>
+          <div class="relative group">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone/40 group-focus-within:text-leaf transition-colors">
+              <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                <path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+              </svg>
+            </span>
+            <input [type]="mostrarPassword ? 'text' : 'password'" [(ngModel)]="contrasena" name="contrasena" required 
+              placeholder="••••••••" 
+              class="w-full pl-12 pr-12 py-4 rounded-2xl bg-cream/50 border border-sage-pale text-sm text-bark outline-none transition-all duration-300 focus:border-leaf focus:ring-4 focus:ring-leaf/5 focus:bg-white" />
+            <button type="button" (click)="mostrarPassword = !mostrarPassword"
+              class="absolute right-4 top-1/2 -translate-y-1/2 text-stone/30 hover:text-leaf transition-colors p-1">
+              @if (!mostrarPassword) {
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+              } @else {
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" /></svg>
+              }
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" 
+          class="w-full flex items-center justify-center gap-3 px-6 py-4 text-sm font-bold text-white bg-leaf rounded-2xl shadow-xl shadow-leaf/20 hover:bg-bark hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] group">
+          <span>Entrar a mi biblioteca</span>
+          <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+          </svg>
+        </button>
+
+        <div class="mt-10 flex items-center justify-center gap-4">
+          <div class="flex-1 h-px bg-sage-pale/60"></div>
+          <a routerLink="/registrarse" 
+            class="text-[11px] font-bold text-stone/50 uppercase tracking-[.2em] hover:text-leaf transition-colors whitespace-nowrap">
+            Crear cuenta nueva
           </a>
+          <div class="flex-1 h-px bg-sage-pale/60"></div>
         </div>
-        <div class="relative">
-          <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone/40 pointer-events-none">
-            <svg class="w-[17px] h-[17px]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
-            </svg>
-          </span>
-          <input [type]="mostrarPassword ? 'text' : 'password'" [(ngModel)]="contrasena" name="contrasena"
-            placeholder="Tu contraseña" required class="w-full pl-11 pr-12 py-3.5 rounded-2xl bg-cream border border-sage-pale text-sm text-bark
-                   placeholder-stone/30 transition-all duration-200
-                   focus:border-sage focus:ring-2 focus:ring-sage/20 focus:bg-white" />
-          <button type="button" (click)="mostrarPassword = !mostrarPassword"
-            class="absolute right-4 top-1/2 -translate-y-1/2 text-stone/40 hover:text-stone transition-colors">
-            @if (!mostrarPassword) {
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" />
-              <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-            } @else {
-            <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-              <path stroke-linecap="round" stroke-linejoin="round"
-                d="M3.98 8.223A10.477 10.477 0 001.934 12C3.226 16.338 7.244 19.5 12 19.5c.993 0 1.953-.138 2.863-.395M6.228 6.228A10.45 10.45 0 0112 4.5c4.756 0 8.773 3.162 10.065 7.498a10.523 10.523 0 01-4.293 5.774M6.228 6.228L3 3m3.228 3.228l3.65 3.65m7.894 7.894L21 21m-3.228-3.228l-3.65-3.65m0 0a3 3 0 10-4.243-4.243m4.242 4.242L9.88 9.88" />
-            </svg>
-            }
-          </button>
-        </div>
-      </div>
+      </form>
+    </div>
 
-      <!-- Botón submit -->
-      <button  type="submit" class="w-full flex items-center justify-center gap-2.5 px-6 py-3.5
-               text-sm font-medium text-white bg-leaf rounded-2xl
-               shadow-lg shadow-leaf/25 hover:bg-bark
-               hover:-translate-y-0.5 hover:shadow-xl hover:shadow-leaf/20
-               active:translate-y-0 transition-all duration-200 group">
-        <span>Iniciar sesión</span>
-        <svg class="w-4 h-4 transition-transform group-hover:translate-x-0.5" fill="none" viewBox="0 0 24 24"
-          stroke="currentColor" stroke-width="2">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-        </svg>
-      </button>
-
-      <!-- Divider -->
-      <div class="flex items-center gap-3 mt-6">
-        <div class="flex-1 h-px bg-sage-pale"></div>
-        <a href="/registrarse" onclick=""
-          class="text-xs text-stone/50 uppercase tracking-widest hover:text-leaf transition-colors">
-          Crear nueva cuenta
-        </a>
-        <div class="flex-1 h-px bg-sage-pale"></div>
-      </div>
-
-    </form>
   </div>
 </div>

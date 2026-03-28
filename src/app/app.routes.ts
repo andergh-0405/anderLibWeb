@@ -16,6 +16,6 @@ export const routes: Routes = [
     {path:'login',component:LoginPage,canActivate:[canActiveGuard]},
     {path:'iniciarSesion',component:IniciarSesion},
     {path:'registrarse',component:Registrarse},
-    {path:'dasboard',component:PanelAdmin,canMatch:[canMatchGuard]}
+    {path:'dashboard',component:PanelAdmin,canMatch:[canMatchGuard]}
 
 ];

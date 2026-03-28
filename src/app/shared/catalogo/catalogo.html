@@ -11,7 +11,7 @@
         Nuestra <em class="italic text-leaf">colección</em>
       </h2>
       <p class="mt-4 text-stone text-sm font-medium">
-        Mostrando {{ librosFiltrados().length }} de {{ libros().length }} títulos selectos
+        Mostrando {{ librosFiltrados().length }} de {{ libros().length }} títulos
       </p>
     </div>
 
@@ -30,7 +30,7 @@
                  focus:border-leaf focus:ring-4 focus:ring-leaf/5 focus:bg-white shadow-sm" />
       </div>
 
-      <div class="relative min-w-[160px]">
+      <div class="relative min-w-40">
         <select [value]="generoSeleccionado()" (change)="generoSeleccionado.set($any($event.target).value)" class="w-full px-4 py-3.5 text-sm text-bark bg-white border border-sage-pale rounded-2xl
                  outline-none appearance-none cursor-pointer transition-all duration-300
                  focus:border-leaf focus:ring-4 focus:ring-leaf/5 shadow-sm">
@@ -38,11 +38,6 @@
           <option [value]="genero">{{ genero }}</option>
           }
         </select>
-        <span class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-stone/60">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
-          </svg>
-        </span>
       </div>
 
       @if (busqueda() || generoSeleccionado() !== 'Todos') {
@@ -95,14 +90,27 @@
               <span class="text-2xl font-bold text-bark font-serif">${{ book.precio }}</span>
             </div>
 
+            @if (logueado()) {
             <button
               class="relative overflow-hidden group/btn flex items-center gap-2 bg-mint text-bark text-xs font-bold
-                             px-5 py-3 rounded-xl hover:bg-leaf hover:text-white transition-all duration-300 active:scale-95">
+                             px-5 py-3 rounded-xl hover:bg-leaf hover:text-green-700 transition-all duration-300 active:scale-95">
               <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                 <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
               </svg>
               Añadir
             </button>
+            }@else {
+            <button (click)="mensaje()"
+              class="relative overflow-hidden group/btn flex items-center gap-2 bg-mint text-bark text-xs font-bold
+                             px-5 py-3 rounded-xl hover:bg-leaf hover:text-green-700 transition-all duration-300 active:scale-95">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              Añadir al carrito
+            </button>
+            }
+
+
           </div>
         </div>
       </div>

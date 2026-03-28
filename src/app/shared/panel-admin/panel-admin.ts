@@ -152,7 +152,6 @@ export class PanelAdmin {
     });
   }
 
-  // ── Sesión ────────────────────────────────────────
   cerrarSesion(): void {
     this.servicioAuth.logout();
     this.router.navigate(['/']);

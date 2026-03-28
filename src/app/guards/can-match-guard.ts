@@ -1,20 +1,17 @@
 import { inject } from '@angular/core';
 import { CanMatchFn, Route, Router, UrlSegment } from '@angular/router';
 import { UsuariosService } from '../service/usuarios-service';
+import { AuthService } from '../service/auth-service';
 
 export const canMatchGuard: CanMatchFn = (route: Route, segments: UrlSegment[]) => {
   
-  const usuarioService = inject(UsuariosService);
-  const usuario = JSON.parse(localStorage.getItem('usuario')!);
-   
+  const authService = inject(AuthService);
   const router = inject(Router);
 
-  if (usuario.rol === 'ROLE_ADMIN') {
-    return router.parseUrl('/dasboard');
-  }else if(usuario.rol === 'ROLE_USUARIO'){
-    return router.parseUrl('/libros');
-  }else{
-    return router.parseUrl('/');
+  if (authService.rolActual() === 'ROLE_ADMIN') {
+    return true;
   }
+  router.navigate(['/dashboard']); 
+  return false;
 
 };
