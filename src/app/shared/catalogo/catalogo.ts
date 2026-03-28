@@ -22,21 +22,15 @@ export class Catalogo {
     return ['Todos', ...unicos];
   });
  
-  // Libros filtrados por búsqueda + género
   librosFiltrados = computed(() => {
-    const q = this.busqueda().toLowerCase().trim();
-    const g = this.generoSeleccionado();
- 
-    return this.libros().filter(l => {
-      const coincideBusqueda = !q ||
-        l.titulo.toLowerCase().includes(q) ||
-        l.autor.toLowerCase().includes(q);
- 
-      const coincideGenero = g === 'Todos' || l.genero === g;
- 
-      return coincideBusqueda && coincideGenero;
-    });
-  });
+  const term = this.busqueda().toLowerCase();
+  const gen = this.generoSeleccionado();
+  
+  return this.libros().filter(l => 
+    (gen === 'Todos' || l.genero === gen) &&
+    (l.titulo.toLowerCase().includes(term) || l.autor.toLowerCase().includes(term))
+  );
+});
  
   ngOnInit(): void {
     this.servicioLibros.getBooks().subscribe(datos => this.libros.set(datos));

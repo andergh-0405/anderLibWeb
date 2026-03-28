@@ -1,112 +1,127 @@
-<!-- catalogo.html -->
 <div class="min-h-screen bg-cream py-16 px-4 sm:px-6 lg:px-10">
   <div class="max-w-7xl mx-auto">
 
-    <!-- Header -->
-    <div class="text-center mb-10">
-      <span class="inline-flex items-center gap-2 text-xs font-medium tracking-widest uppercase text-sage mb-3">
-        <span class="w-8 h-px bg-sage-light inline-block"></span>
+    <div class="text-center mb-12">
+      <span class="inline-flex items-center gap-3 text-xs font-bold tracking-[0.2em] uppercase text-sage mb-4">
+        <span class="w-12 h-px bg-sage-pale inline-block"></span>
         Libros disponibles
-        <span class="w-8 h-px bg-sage-light inline-block"></span>
+        <span class="w-12 h-px bg-sage-pale inline-block"></span>
       </span>
-      <h2 class="font-serif text-5xl font-semibold text-bark">
+      <h2 class="font-serif text-5xl md:text-6xl font-semibold text-bark">
         Nuestra <em class="italic text-leaf">colección</em>
       </h2>
-      <p class="mt-3 text-stone text-sm">
-        {{ librosFiltrados().length }} de {{ libros().length }} títulos
+      <p class="mt-4 text-stone text-sm font-medium">
+        Mostrando {{ librosFiltrados().length }} de {{ libros().length }} títulos selectos
       </p>
     </div>
 
-    <!-- ── BUSCADOR + FILTROS ── -->
-    <div class="flex flex-col sm:flex-row gap-3 mb-10 max-w-2xl mx-auto">
+    <div class="flex flex-col md:flex-row gap-4 mb-12 max-w-3xl mx-auto">
 
-      <!-- Buscador -->
-      <div class="relative flex-1">
-        <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone/40 pointer-events-none">
-          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      <div class="relative flex-1 group">
+        <span
+          class="absolute left-4 top-1/2 -translate-y-1/2 text-stone/40 group-focus-within:text-leaf transition-colors">
+          <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
           </svg>
         </span>
-        <input
-          type="search"
-          [value]="busqueda()"
-          (input)="busqueda.set($any($event.target).value)"
-          placeholder="Buscar por título o autor..."
-          class="w-full pl-11 pr-4 py-3 text-sm text-bark bg-white border border-sage-pale
-                 rounded-2xl outline-none placeholder-stone/40 transition-all duration-200
-                 focus:border-sage focus:ring-2 focus:ring-sage/20 focus:bg-warmwhite"/>
+        <input type="text" [value]="busqueda()" (input)="busqueda.set($any($event.target).value)"
+          placeholder="Buscar por título o autor..." class="w-full pl-12 pr-4 py-3.5 text-sm text-bark bg-white border border-sage-pale
+                 rounded-2xl outline-none placeholder-stone/40 transition-all duration-300
+                 focus:border-leaf focus:ring-4 focus:ring-leaf/5 focus:bg-white shadow-sm" />
       </div>
 
-      <!-- Filtro género -->
-      <select
-        [value]="generoSeleccionado()"
-        (change)="generoSeleccionado.set($any($event.target).value)"
-        class="px-4 py-3 text-sm text-bark bg-white border border-sage-pale rounded-2xl
-               outline-none transition-all duration-200 focus:border-sage focus:ring-2
-               focus:ring-sage/20 cursor-pointer">
-        @for (genero of generos(); track genero) {
+      <div class="relative min-w-[160px]">
+        <select [value]="generoSeleccionado()" (change)="generoSeleccionado.set($any($event.target).value)" class="w-full px-4 py-3.5 text-sm text-bark bg-white border border-sage-pale rounded-2xl
+                 outline-none appearance-none cursor-pointer transition-all duration-300
+                 focus:border-leaf focus:ring-4 focus:ring-leaf/5 shadow-sm">
+          @for (genero of generos(); track genero) {
           <option [value]="genero">{{ genero }}</option>
-        }
-      </select>
+          }
+        </select>
+        <span class="absolute right-4 top-1/2 -translate-y-1/2 pointer-events-none text-stone/60">
+          <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+          </svg>
+        </span>
+      </div>
 
-      <!-- Botón limpiar (solo si hay filtros activos) -->
       @if (busqueda() || generoSeleccionado() !== 'Todos') {
-        <button
-          (click)="busqueda.set(''); generoSeleccionado.set('Todos')"
-          class="px-4 py-3 text-sm text-stone border border-sage-pale rounded-2xl bg-white
-                 hover:bg-mint hover:text-bark transition-all duration-200 shrink-0">
-          Limpiar
-        </button>
+      <button (click)="busqueda.set(''); generoSeleccionado.set('Todos')"
+        class="px-6 py-3.5 text-sm font-semibold text-stone border border-sage-pale rounded-2xl bg-white
+                 hover:bg-red-50 hover:text-red-500 hover:border-red-100 transition-all duration-300 shrink-0 shadow-sm">
+        Limpiar
+      </button>
       }
     </div>
 
-    <!-- Grid -->
-    <div class="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
       @for (book of librosFiltrados(); track book.id) {
-        <div class="group bg-warmwhite border border-sage-pale rounded-2xl overflow-hidden flex flex-col
-                    hover:shadow-xl hover:shadow-sage/15 hover:-translate-y-1 transition-all duration-300">
-          <div class="relative overflow-hidden h-52 bg-mint">
-            <img [src]="book.imagen" [alt]="book.titulo"
-              class="w-full h-full object-cover transition-transform duration-400 group-hover:scale-105"/>
-            <span class="absolute top-3 left-3 bg-warmwhite/90 text-leaf text-xs font-medium px-3 py-1
-                         rounded-full border border-sage-pale">
-              {{ book.genero }}
+      <div class="group bg-white border border-sage-pale rounded-3xl overflow-hidden flex flex-col
+                    hover:shadow-2xl hover:shadow-bark/5 hover:-translate-y-2 transition-all duration-500">
+
+        <div class="relative overflow-hidden h-64 bg-mint/30">
+          <img [src]="book.imagen" [alt]="book.titulo"
+            class="w-full h-full object-cover object-center transition-transform duration-700 group-hover:scale-110" />
+          <div
+            class="absolute inset-0 bg-gradient-to-t from-bark/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+          </div>
+          <span
+            class="absolute top-4 left-4 bg-white/95 backdrop-blur shadow-sm text-leaf text-[10px] uppercase tracking-widest font-bold px-3 py-1.5 rounded-lg border border-sage-pale">
+            {{ book.genero }}
+          </span>
+        </div>
+
+        <div class="p-6 flex flex-col flex-1">
+          <h3 class="font-serif text-xl font-bold text-bark leading-tight mb-2 group-hover:text-leaf transition-colors">
+            {{ book.titulo }}
+          </h3>
+          <p class="text-sm text-stone italic mb-4">{{ book.autor }}</p>
+
+          <div class="flex items-center gap-3 mb-6 text-[11px] font-medium text-stone/60 uppercase tracking-tighter">
+            <span class="flex items-center gap-1">
+              <svg class="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+              </svg>
+              {{ book.publicacion }}
             </span>
+            <span class="w-1 h-1 rounded-full bg-sage-pale"></span>
+            <span>{{ book.anio }}</span>
           </div>
-          <div class="p-5 flex flex-col flex-1">
-            <h3 class="font-serif text-xl font-semibold text-bark leading-snug mb-1">{{ book.titulo }}</h3>
-            <p class="text-xs text-stone">{{ book.autor }}</p>
-            <div class="flex gap-2 mt-2 text-xs text-stone/80">
-              <span>{{ book.publicacion }}</span>
-              <span>·</span>
-              <span>{{ book.anio }}</span>
+
+          <div class="mt-auto pt-4 border-t border-sage-pale/50 flex items-center justify-between">
+            <div class="flex flex-col">
+              <span class="text-[10px] text-stone/60 uppercase font-bold">Precio</span>
+              <span class="text-2xl font-bold text-bark font-serif">${{ book.precio }}</span>
             </div>
-            <div class="mt-auto pt-5 flex items-center justify-between">
-              <div class="flex flex-col">
-                <span class="text-xs text-stone uppercase tracking-wide">Precio</span>
-                <span class="text-2xl font-bold text-leaf font-serif">${{ book.precio }}</span>
-              </div>
-              <button class="flex items-center gap-1.5 bg-green-100 text-green-700 text-xs font-medium
-                             px-4 py-2.5 rounded-full hover:bg-leaf hover:text-white transition-all duration-200">
-                🛒 Comprar
-              </button>
-            </div>
+
+            <button
+              class="relative overflow-hidden group/btn flex items-center gap-2 bg-mint text-bark text-xs font-bold
+                             px-5 py-3 rounded-xl hover:bg-leaf hover:text-white transition-all duration-300 active:scale-95">
+              <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
+                <path d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+              </svg>
+              Añadir
+            </button>
           </div>
         </div>
+      </div>
       } @empty {
-        <div class="col-span-full flex flex-col items-center py-20 text-center">
-          <svg class="w-12 h-12 text-sage-pale mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-              d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+      <div class="col-span-full flex flex-col items-center py-24 text-center">
+        <div class="w-20 h-20 bg-mint/30 rounded-full flex items-center justify-center mb-6 text-leaf">
+          <svg class="w-10 h-10" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+              d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
           </svg>
-          <p class="font-serif text-xl text-bark">Sin resultados</p>
-          <p class="text-sm text-stone mt-1">Intenta con otro término o limpia los filtros.</p>
-          <button (click)="busqueda.set(''); generoSeleccionado.set('Todos')"
-            class="mt-4 px-5 py-2 text-sm text-bark border border-sage-pale rounded-full
-                   hover:bg-mint transition-all">
-            Ver todos los libros
-          </button>
         </div>
+        <h3 class="font-serif text-2xl text-bark font-semibold">No encontramos ese tesoro</h3>
+        <p class="text-stone mt-2 max-w-xs mx-auto text-sm">Prueba con palabras más generales o explora otras categorías
+          de nuestra biblioteca.</p>
+        <button (click)="busqueda.set(''); generoSeleccionado.set('Todos')"
+          class="mt-8 px-8 py-3 text-sm font-bold text-white bg-leaf rounded-full hover:bg-bark transition-all shadow-lg shadow-leaf/20">
+          Ver catálogo completo
+        </button>
+      </div>
       }
     </div>
 
