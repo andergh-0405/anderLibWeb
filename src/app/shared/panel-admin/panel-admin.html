@@ -1,88 +1,71 @@
 <div class="flex h-screen bg-cream overflow-hidden">
-    <aside class="flex flex-col w-64 h-screen bg-library border-r border-sage-pale/20 shrink-0">
+    <aside class="flex flex-col w-64 h-screen bg-library border-r border-sage-pale/20 shrink-0 shadow-2xl">
 
-        <!-- Logo -->
-        <div class="px-6 py-6 border-b border-white/10">
-            <a routerLink="/" class="flex items-center gap-2.5">
-                <div class="w-8 h-8 rounded-lg flex items-center justify-center" style="background:rgba(61,97,66,.8)">
-                    <svg class="w-4 h-4 text-parchment" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                        stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                        <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
-                    </svg>
-                </div>
-                <span class="font-serif text-lg font-semibold text-parchment">AnderLib</span>
-                <span class="ml-auto text-[10px] font-bold bg-gold/20 text-gold px-1.5 py-0.5 rounded-full">
-                    Admin
-                </span>
-            </a>
+        <div class="p-6 mb-2">
+            <span class="font-serif text-2xl font-bold text-parchment tracking-tight">AnderLib</span>
+            <div class="h-px w-8 bg-leaf/40 mt-1"></div>
         </div>
 
-        <!-- Nav -->
-        <nav class="flex-1 px-3 py-5 space-y-1 overflow-y-auto">
-
-            <p class="px-3 mb-2 text-[10px] font-semibold uppercase tracking-[.15em] text-parchment/30">
+        <nav class="flex-1 px-4 space-y-1.5 overflow-y-auto">
+            <p class="px-3 mb-3 text-[10px] font-bold uppercase tracking-[.25em] text-parchment/20">
                 Gestión
             </p>
 
-            <!-- Libros -->
             <button (click)="vistaActual = 'libros'"
                 [class]="vistaActual === 'libros'
-          ? 'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium bg-leaf/30 text-parchment border border-leaf/40'
-          : 'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-parchment/60 hover:bg-white/5 hover:text-parchment transition-all duration-150'">
-                <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                ? 'w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold bg-leaf/20 text-parchment border border-leaf/30 shadow-inner'
+                : 'w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-medium text-parchment/40 hover:bg-white/5 hover:text-parchment transition-all duration-200'">
+                <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
                 Libros
-                <span class="ml-auto text-[11px] bg-leaf/20 text-sage-light px-2 py-0.5 rounded-full">
+                <span class="ml-auto text-[10px] bg-leaf/20 text-sage-light px-2 py-0.5 rounded-lg border border-leaf/10">
                     {{ libros().length }}
                 </span>
             </button>
 
-            <!-- Usuarios -->
             <button (click)="vistaActual = 'usuarios'"
                 [class]="vistaActual === 'usuarios'
-                    ? 'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium bg-leaf/30 text-parchment border border-leaf/40'
-                    : 'w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-parchment/60 hover:bg-white/5 hover:text-parchment transition-all duration-150'">
-                <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                ? 'w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-semibold bg-leaf/20 text-parchment border border-leaf/30 shadow-inner'
+                : 'w-full flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-medium text-parchment/40 hover:bg-white/5 hover:text-parchment transition-all duration-200'">
+                <svg class="w-4 h-4 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
                 </svg>
                 Usuarios
-                <span class="ml-auto text-[11px] bg-leaf/20 text-sage-light px-2 py-0.5 rounded-full">
+                <span class="ml-auto text-[10px] bg-leaf/20 text-sage-light px-2 py-0.5 rounded-lg border border-leaf/10">
                     {{ usuarios().length }}
                 </span>
             </button>
+            
+            <div class="my-6 border-t border-white/5 mx-2"></div>
 
-            <div class="my-4 border-t border-white/10"></div>
-
-            <p class="px-3 mb-2 text-[10px] font-semibold uppercase tracking-[.15em] text-parchment/30">
+            <p class="px-3 mb-3 text-[10px] font-bold uppercase tracking-[.25em] text-parchment/20">
                 Navegación
             </p>
 
-            <a routerLink="/" class="flex items-center gap-3 px-3 py-2.5 rounded-xl text-sm font-medium text-parchment/60
-               hover:bg-white/5 hover:text-parchment transition-all duration-150">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+            <a routerLink="/" class="flex items-center gap-3 px-4 py-3 rounded-2xl text-sm font-medium text-parchment/40
+                hover:bg-white/5 hover:text-parchment transition-all duration-200">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round"
                         d="M2.25 12l8.954-8.955a1.126 1.126 0 011.591 0L21.75 12M4.5 9.75v10.125c0 .621.504 1.125 1.125 1.125H9.75v-4.875c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125V21h4.125c.621 0 1.125-.504 1.125-1.125V9.75M8.25 21h8.25" />
                 </svg>
                 Ir al sitio
             </a>
-
         </nav>
 
-        <div class="px-4 py-4 border-t border-white/10">
-            <div class="flex items-center gap-3">
+        <div class="px-4 py-6 border-t border-white/5 bg-black/10">
+            <div class="flex items-center gap-3 bg-white/5 p-3 rounded-2xl border border-white/5">
                 <img [src]="usuarioActual()?.foto || 'https://ui-avatars.com/api/?name=' + usuarioActual()?.nombre + '&background=3D6142&color=fff'"
-                    class="w-8 h-8 rounded-full object-cover ring-2 ring-leaf/40" alt="avatar" />
+                    class="w-9 h-9 rounded-xl object-cover ring-2 ring-leaf/40 shadow-lg" alt="avatar" />
                 <div class="min-w-0 flex-1">
-                    <p class="text-xs font-semibold text-parchment truncate">{{ usuarioActual()?.nombre }}</p>
-                    <p class="text-[11px] text-parchment/40 truncate">{{ usuarioActual()?.correo }}</p>
+                    <p class="text-xs font-bold text-parchment truncate">{{ usuarioActual()?.nombre }}</p>
+                    <p class="text-[10px] uppercase tracking-wider text-leaf font-bold">Admin</p>
                 </div>
                 <button (click)="cerrarSesion()"
-                    class="p-1.5 rounded-lg text-parchment/40 hover:text-red-400 hover:bg-red-400/10 transition-all">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                    class="p-2 rounded-xl text-parchment/30 hover:text-red-400 hover:bg-red-400/10 transition-all">
+                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M15.75 9V5.25A2.25 2.25 0 0013.5 3h-6a2.25 2.25 0 00-2.25 2.25v13.5A2.25 2.25 0 007.5 21h6a2.25 2.25 0 002.25-2.25V15M12 9l-3 3m0 0l3 3m-3-3h12.75" />
                     </svg>
@@ -90,102 +73,88 @@
             </div>
         </div>
     </aside>
-    <main class="flex-1 flex flex-col overflow-hidden">
 
-        <header class="flex items-center justify-between px-8 py-4 bg-warmwhite border-b border-sage-pale">
+    <main class="flex-1 flex flex-col overflow-hidden bg-cream/30">
+
+        <header class="flex items-center justify-between px-10 py-6 bg-white/80 backdrop-blur-md border-b border-sage-pale/50 shadow-sm z-10">
             <div>
-                <h1 class="font-serif text-2xl font-semibold text-bark">
+                <h1 class="font-serif text-3xl font-bold text-bark tracking-tight">
                     {{ vistaActual === 'libros' ? 'Gestión de Libros' : 'Gestión de Usuarios' }}
                 </h1>
-                <p class="text-sm text-stone mt-0.5">
-                    {{ vistaActual === 'libros' ? libros.length + ' libros registrados' : usuarios.length + ' usuarios
-                    registrados'}}
+                <p class="text-xs font-bold text-stone/50 uppercase tracking-[.15em] mt-1">
+                    {{ vistaActual === 'libros' ? libros().length + ' libros en inventario' : usuarios().length + ' usuarios registrados'}}
                 </p>
             </div>
 
-            <!-- Botón agregar -->
-            <button (click)="vistaActual === 'libros' ? abrirModalLibro() : abrirModalUsuario()" class="flex items-center gap-2 px-5 py-2.5 bg-leaf text-white text-sm font-medium
-               rounded-xl shadow-lg shadow-leaf/25 hover:bg-bark hover:-translate-y-0.5
-               transition-all duration-200">
-                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <button (click)="vistaActual === 'libros' ? abrirModalLibro() : abrirModalUsuario()" 
+                class="flex items-center gap-2.5 px-6 py-3 bg-leaf text-green-800 text-sm font-bold
+                rounded-2xl shadow-xl shadow-leaf/25 hover:bg-bark hover:-translate-y-1 active:translate-y-0
+                transition-all duration-300">
+                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
                 </svg>
                 {{ vistaActual === 'libros' ? 'Nuevo Libro' : 'Nuevo Usuario' }}
             </button>
         </header>
 
-        <div class="flex-1 overflow-y-auto px-8 py-6">
+        <div class="flex-1 overflow-y-auto px-10 py-8">
 
-            <div class="relative mb-5 max-w-sm">
-                <span class="absolute left-3.5 top-1/2 -translate-y-1/2 text-stone/40 pointer-events-none">
-                    <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <div class="relative mb-8 max-w-md group">
+                <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone/40 group-focus-within:text-leaf transition-colors duration-300">
+                    <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                         <path stroke-linecap="round" stroke-linejoin="round"
                             d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                     </svg>
                 </span>
-                <input type="search" [(ngModel)]="busqueda" placeholder="Buscar..." class="w-full pl-10 pr-4 py-2.5 text-sm text-bark bg-white border border-sage-pale
-                 rounded-xl focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all" />
+                <input type="search" [(ngModel)]="busqueda" placeholder="Buscar registros..." 
+                    class="w-full pl-12 pr-6 py-3.5 text-sm text-bark bg-white border border-sage-pale
+                    rounded-2xl shadow-sm focus:border-leaf focus:ring-4 focus:ring-leaf/5 outline-none transition-all duration-300" />
             </div>
 
             @if (vistaActual === 'libros') {
-            <div class="bg-white rounded-2xl border border-sage-pale shadow-sm overflow-hidden">
+            <div class="bg-white rounded-[2rem] border border-sage-pale shadow-2xl shadow-bark/5 overflow-hidden">
                 <table class="w-full text-sm">
                     <thead>
-                        <tr class="bg-mint/60 border-b border-sage-pale">
-                            <th
-                                class="text-left px-5 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-stone">
-                                Libro</th>
-                            <th
-                                class="text-left px-4 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-stone">
-                                Autor</th>
-                            <th
-                                class="text-left px-4 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-stone">
-                                Género</th>
-                            <th
-                                class="text-left px-4 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-stone">
-                                Año</th>
-                            <th
-                                class="text-left px-4 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-stone">
-                                Precio</th>
-                            <th
-                                class="text-right px-5 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-stone">
-                                Acciones</th>
+                        <tr class="bg-mint/40 border-b border-sage-pale/50">
+                            <th class="text-left px-8 py-5 text-[10px] font-bold uppercase tracking-[.2em] text-stone">Detalles del Libro</th>
+                            <th class="text-left px-6 py-5 text-[10px] font-bold uppercase tracking-[.2em] text-stone">Autor</th>
+                            <th class="text-left px-6 py-5 text-[10px] font-bold uppercase tracking-[.2em] text-stone">Género</th>
+                            <th class="text-left px-6 py-5 text-[10px] font-bold uppercase tracking-[.2em] text-stone">Año</th>
+                            <th class="text-left px-6 py-5 text-[10px] font-bold uppercase tracking-[.2em] text-stone">Precio</th>
+                            <th class="text-right px-8 py-5 text-[10px] font-bold uppercase tracking-[.2em] text-stone">Acciones</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-sage-pale/50">
+                    <tbody class="divide-y divide-sage-pale/30">
                         @for (libro of librosFiltrados(); track libro.id) {
-                        <tr class="hover:bg-mint/30 transition-colors duration-150 group">
-                            <td class="px-5 py-3.5">
-                                <div class="flex items-center gap-3">
+                        <tr class="hover:bg-cream/40 transition-colors duration-200 group">
+                            <td class="px-8 py-4">
+                                <div class="flex items-center gap-4">
                                     <img [src]="libro.imagen" [alt]="libro.titulo"
-                                        class="w-9 h-12 object-cover rounded-lg shadow-sm shrink-0"
+                                        class="w-10 h-14 object-cover rounded-xl shadow-md border border-sage-pale group-hover:scale-105 transition-transform duration-300"
                                         onerror="this.src='https://via.placeholder.com/36x48/EAF4E8/3D6142?text=📖'" />
-                                    <span class="font-medium text-bark line-clamp-1">{{ libro.titulo }}</span>
+                                    <span class="font-serif text-base font-bold text-bark line-clamp-1">{{ libro.titulo }}</span>
                                 </div>
                             </td>
-                            <td class="px-4 py-3.5 text-stone">{{ libro.autor }}</td>
-                            <td class="px-4 py-3.5">
-                                <span class="inline-flex px-2.5 py-0.5 text-[11px] font-medium bg-sage-pale/60
-                                 text-bark rounded-full">{{ libro.genero }}</span>
+                            <td class="px-6 py-4 text-stone font-medium">{{ libro.autor }}</td>
+                            <td class="px-6 py-4">
+                                <span class="inline-flex px-3 py-1 text-[10px] font-bold bg-mint text-leaf rounded-lg uppercase tracking-wider border border-leaf/10">
+                                    {{ libro.genero }}
+                                </span>
                             </td>
-                            <td class="px-4 py-3.5 text-stone">{{ libro.anio }}</td>
-                            <td class="px-4 py-3.5 font-medium text-leaf">${{ libro.precio }}</td>
-                            <td class="px-5 py-3.5">
-                                <div class="flex items-center justify-end gap-1">
-                                    <button (click)="editarLibro(libro)" class="p-1.5 rounded-lg text-stone hover:text-leaf hover:bg-mint
-                               opacity-0 group-hover:opacity-100 transition-all duration-150">
-                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                            stroke-width="1.8">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125" />
+                            <td class="px-6 py-4 text-stone/60 font-medium">{{ libro.anio }}</td>
+                            <td class="px-6 py-4 font-bold text-bark italic">${{ libro.precio }}</td>
+                            <td class="px-8 py-4">
+                                <div class="flex items-center justify-end gap-2">
+                                    <button (click)="editarLibro(libro)" class="p-2.5 rounded-xl text-stone hover:text-leaf hover:bg-leaf/10
+                                        opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                         </svg>
                                     </button>
-                                    <button (click)="eliminarLibro(libro.id!)" class="p-1.5 rounded-lg text-stone hover:text-red-500 hover:bg-red-50
-                               opacity-0 group-hover:opacity-100 transition-all duration-150">
-                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                            stroke-width="1.8">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                    <button (click)="eliminarLibro(libro.id!)" class="p-2.5 rounded-xl text-stone hover:text-red-500 hover:bg-red-50
+                                        opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                         </svg>
                                     </button>
                                 </div>
@@ -193,13 +162,11 @@
                         </tr>
                         } @empty {
                         <tr>
-                            <td colspan="6" class="px-5 py-12 text-center text-stone/50">
-                                <svg class="w-10 h-10 mx-auto mb-3 text-sage-pale" fill="none" viewBox="0 0 24 24"
-                                    stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"
-                                        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                </svg>
-                                No se encontraron libros
+                            <td colspan="6" class="px-8 py-24 text-center">
+                                <div class="flex flex-col items-center opacity-20">
+                                    <svg class="w-16 h-16 mb-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" /></svg>
+                                    <p class="font-serif text-2xl font-bold">Sin resultados</p>
+                                </div>
                             </td>
                         </tr>
                         }
@@ -209,59 +176,47 @@
             }
 
             @if (vistaActual === 'usuarios') {
-            <div class="bg-white rounded-2xl border border-sage-pale shadow-sm overflow-hidden">
+            <div class="bg-white rounded-[2rem] border border-sage-pale shadow-2xl shadow-bark/5 overflow-hidden">
                 <table class="w-full text-sm">
                     <thead>
-                        <tr class="bg-mint/60 border-b border-sage-pale">
-                            <th
-                                class="text-left px-5 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-stone">
-                                Usuario</th>
-                            <th
-                                class="text-left px-4 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-stone">
-                                Correo</th>
-                            <th
-                                class="text-left px-4 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-stone">
-                                Rol</th>
-                            <th
-                                class="text-right px-5 py-3.5 text-[11px] font-semibold uppercase tracking-wider text-stone">
-                                Acciones</th>
+                        <tr class="bg-mint/40 border-b border-sage-pale/50">
+                            <th class="text-left px-8 py-5 text-[10px] font-bold uppercase tracking-[.2em] text-stone">Perfil de Usuario</th>
+                            <th class="text-left px-6 py-5 text-[10px] font-bold uppercase tracking-[.2em] text-stone">Contacto</th>
+                            <th class="text-left px-6 py-5 text-[10px] font-bold uppercase tracking-[.2em] text-stone">Permisos</th>
+                            <th class="text-right px-8 py-5 text-[10px] font-bold uppercase tracking-[.2em] text-stone">Acciones</th>
                         </tr>
                     </thead>
-                    <tbody class="divide-y divide-sage-pale/50">
+                    <tbody class="divide-y divide-sage-pale/30">
                         @for (usuario of usuariosFiltrados(); track usuario.id) {
-                        <tr class="hover:bg-mint/30 transition-colors duration-150 group">
-                            <td class="px-5 py-3.5">
-                                <div class="flex items-center gap-3">
+                        <tr class="hover:bg-cream/40 transition-colors duration-200 group">
+                            <td class="px-8 py-5">
+                                <div class="flex items-center gap-4">
                                     <img [src]="usuario.foto || 'https://ui-avatars.com/api/?name=' + usuario.nombre + '&background=3D6142&color=fff'"
                                         [alt]="usuario.nombre"
-                                        class="w-8 h-8 rounded-full object-cover ring-2 ring-sage-pale shrink-0" />
-                                    <span class="font-medium text-bark">{{ usuario.nombre }}</span>
+                                        class="w-10 h-10 rounded-full object-cover ring-4 ring-mint shadow-md" />
+                                    <span class="font-bold text-bark text-base">{{ usuario.nombre }}</span>
                                 </div>
                             </td>
-                            <td class="px-4 py-3.5 text-stone">{{ usuario.correo }}</td>
-                            <td class="px-4 py-3.5">
+                            <td class="px-6 py-5 text-stone font-medium">{{ usuario.correo }}</td>
+                            <td class="px-6 py-5">
                                 <span [class]="usuario.rol === 'ROLE_ADMIN'
-                      ? 'inline-flex px-2.5 py-0.5 text-[11px] font-bold bg-leaf/15 text-leaf rounded-full'
-                      : 'inline-flex px-2.5 py-0.5 text-[11px] font-medium bg-sage-pale/60 text-stone rounded-full'">
+                                ? 'inline-flex px-3 py-1 text-[10px] font-bold bg-sage-pale/60 text-stone rounded-lg uppercase tracking-widest'
+                                : 'inline-flex px-3 py-1 text-[10px] font-bold bg-sage-pale/60 text-stone rounded-lg uppercase tracking-widest'">
                                     {{ usuario.rol === 'ROLE_ADMIN' ? 'Admin' : 'Usuario' }}
                                 </span>
                             </td>
-                            <td class="px-5 py-3.5">
-                                <div class="flex items-center justify-end gap-1">
-                                    <button (click)="editarUsuario(usuario)" class="p-1.5 rounded-lg text-stone hover:text-leaf hover:bg-mint
-                               opacity-0 group-hover:opacity-100 transition-all duration-150">
-                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                            stroke-width="1.8">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125" />
+                            <td class="px-8 py-5 text-right">
+                                <div class="flex items-center justify-end gap-2">
+                                    <button (click)="editarUsuario(usuario)" class="p-2.5 rounded-xl text-stone hover:text-leaf hover:bg-leaf/10
+                                        opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
                                         </svg>
                                     </button>
-                                    <button (click)="eliminarUsuario(usuario.id!)" class="p-1.5 rounded-lg text-stone hover:text-red-500 hover:bg-red-50
-                               opacity-0 group-hover:opacity-100 transition-all duration-150">
-                                        <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"
-                                            stroke-width="1.8">
-                                            <path stroke-linecap="round" stroke-linejoin="round"
-                                                d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                                    <button (click)="eliminarUsuario(usuario.id!)" class="p-2.5 rounded-xl text-stone hover:text-red-500 hover:bg-red-50
+                                        opacity-0 group-hover:opacity-100 transition-all duration-300">
+                                        <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
+                                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                                         </svg>
                                     </button>
                                 </div>
@@ -269,8 +224,8 @@
                         </tr>
                         } @empty {
                         <tr>
-                            <td colspan="4" class="px-5 py-12 text-center text-stone/50">
-                                No se encontraron usuarios
+                            <td colspan="4" class="px-8 py-24 text-center opacity-20 font-serif text-xl font-bold">
+                                No hay usuarios registrados
                             </td>
                         </tr>
                         }
@@ -284,79 +239,49 @@
 </div>
 
 @if (modalLibroAbierto) {
-<div class="fixed inset-0 z-50 flex items-center justify-center p-4"
-    style="background:rgba(28,46,26,.6); backdrop-filter:blur(4px)">
-    <div class="bg-warmwhite rounded-3xl shadow-2xl w-full max-w-lg border border-sage-pale">
-
-        <!-- Header modal -->
-        <div class="flex items-center justify-between px-6 py-5 border-b border-sage-pale">
-            <h2 class="font-serif text-xl font-semibold text-bark">
-                {{ libroEditando ? 'Editar Libro' : 'Nuevo Libro' }}
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-library/60 backdrop-blur-md">
+    <div class="bg-warmwhite rounded-[2.5rem] shadow-2xl w-full max-w-lg border border-sage-pale overflow-hidden">
+        <div class="flex items-center justify-between px-8 py-6 border-b border-sage-pale">
+            <h2 class="font-serif text-2xl font-bold text-bark">
+                {{ libroEditando ? 'Editar Obra' : 'Registrar Nueva Obra' }}
             </h2>
-            <button (click)="cerrarModalLibro()"
-                class="p-2 rounded-xl text-stone hover:text-bark hover:bg-mint transition-all">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+            <button (click)="cerrarModalLibro()" class="p-2 rounded-xl text-stone hover:text-red-500 hover:bg-red-50 transition-all">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
         </div>
 
-        <!-- Form -->
-        <form (ngSubmit)="guardarLibro()" class="px-6 py-5 space-y-4">
-
-            <div class="grid grid-cols-2 gap-4">
-                <div class="col-span-2">
-                    <label
-                        class="text-[11px] font-semibold uppercase tracking-wider text-bark mb-1.5 block">Título</label>
-                    <input type="text" [(ngModel)]="formLibro.titulo" name="titulo" required class="w-full px-4 py-2.5 text-sm text-bark bg-cream border border-sage-pale rounded-xl
-                     focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all" />
+        <form (ngSubmit)="guardarLibro()" class="px-8 py-8 space-y-5">
+            <div class="grid grid-cols-2 gap-5">
+                <div class="col-span-2 space-y-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-bark ml-1">Título de la Obra</label>
+                    <input type="text" [(ngModel)]="formLibro.titulo" name="titulo" required class="w-full px-5 py-3 text-sm bg-cream/50 border border-sage-pale rounded-2xl focus:border-leaf focus:ring-4 focus:ring-leaf/5 outline-none transition-all" />
                 </div>
-                <div>
-                    <label
-                        class="text-[11px] font-semibold uppercase tracking-wider text-bark mb-1.5 block">Autor</label>
-                    <input type="text" [(ngModel)]="formLibro.autor" name="autor" required class="w-full px-4 py-2.5 text-sm text-bark bg-cream border border-sage-pale rounded-xl
-                     focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all" />
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-bark ml-1">Autor</label>
+                    <input type="text" [(ngModel)]="formLibro.autor" name="autor" required class="w-full px-5 py-3 text-sm bg-cream/50 border border-sage-pale rounded-2xl focus:border-leaf focus:ring-4 focus:ring-leaf/5 outline-none transition-all" />
                 </div>
-                <div>
-                    <label
-                        class="text-[11px] font-semibold uppercase tracking-wider text-bark mb-1.5 block">Género</label>
-                    <input type="text" [(ngModel)]="formLibro.genero" name="genero" required class="w-full px-4 py-2.5 text-sm text-bark bg-cream border border-sage-pale rounded-xl
-                     focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all" />
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-bark ml-1">Género</label>
+                    <input type="text" [(ngModel)]="formLibro.genero" name="genero" required class="w-full px-5 py-3 text-sm bg-cream/50 border border-sage-pale rounded-2xl focus:border-leaf focus:ring-4 focus:ring-leaf/5 outline-none transition-all" />
                 </div>
-                <div>
-                    <label class="text-[11px] font-semibold uppercase tracking-wider text-bark mb-1.5 block">Año</label>
-                    <input type="number" [(ngModel)]="formLibro.anio" name="anio" required class="w-full px-4 py-2.5 text-sm text-bark bg-cream border border-sage-pale rounded-xl
-                     focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all" />
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-bark ml-1">Año</label>
+                    <input type="number" [(ngModel)]="formLibro.anio" name="anio" required class="w-full px-5 py-3 text-sm bg-cream/50 border border-sage-pale rounded-2xl focus:border-leaf focus:ring-4 focus:ring-leaf/5 outline-none transition-all" />
                 </div>
-                <div>
-                    <label
-                        class="text-[11px] font-semibold uppercase tracking-wider text-bark mb-1.5 block">Precio</label>
-                    <input type="number" [(ngModel)]="formLibro.precio" name="precio" required class="w-full px-4 py-2.5 text-sm text-bark bg-cream border border-sage-pale rounded-xl
-                     focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all" />
+                <div class="space-y-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-bark ml-1">Precio</label>
+                    <input type="number" [(ngModel)]="formLibro.precio" name="precio" required class="w-full px-5 py-3 text-sm bg-cream/50 border border-sage-pale rounded-2xl focus:border-leaf focus:ring-4 focus:ring-leaf/5 outline-none transition-all" />
                 </div>
-                <div class="col-span-2">
-                    <label class="text-[11px] font-semibold uppercase tracking-wider text-bark mb-1.5 block">URL
-                        Imagen</label>
-                    <input type="url" [(ngModel)]="formLibro.imagen" name="imagen" class="w-full px-4 py-2.5 text-sm text-bark bg-cream border border-sage-pale rounded-xl
-                     focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all" />
-                </div>
-                <div class="col-span-2">
-                    <label
-                        class="text-[11px] font-semibold uppercase tracking-wider text-bark mb-1.5 block">Publicación</label>
-                    <input type="text" [(ngModel)]="formLibro.publicacion" name="publicacion" class="w-full px-4 py-2.5 text-sm text-bark bg-cream border border-sage-pale rounded-xl
-                     focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all" />
+                <div class="col-span-2 space-y-1.5">
+                    <label class="text-[10px] font-bold uppercase tracking-widest text-bark ml-1">URL de Portada</label>
+                    <input type="url" [(ngModel)]="formLibro.imagen" name="imagen" class="w-full px-5 py-3 text-sm bg-cream/50 border border-sage-pale rounded-2xl focus:border-leaf focus:ring-4 focus:ring-leaf/5 outline-none transition-all" />
                 </div>
             </div>
 
-            <!-- Botones -->
-            <div class="flex justify-end gap-3 pt-2">
-                <button type="button" (click)="cerrarModalLibro()" class="px-5 py-2.5 text-sm font-medium text-stone border border-sage-pale rounded-xl
-                   hover:bg-mint transition-all">
-                    Cancelar
-                </button>
-                <button type="submit" class="px-5 py-2.5 text-sm font-medium text-white bg-leaf rounded-xl
-                   shadow-md shadow-leaf/20 hover:bg-bark transition-all">
-                    {{ libroEditando ? 'Guardar cambios' : 'Agregar libro' }}
+            <div class="flex justify-end gap-3 pt-6">
+                <button type="button" (click)="cerrarModalLibro()" class="px-6 py-3 text-sm font-bold text-stone border border-sage-pale rounded-2xl hover:bg-mint transition-all">Cancelar</button>
+                <button type="submit" class="px-8 py-3 text-sm font-bold text-black bg-leaf rounded-2xl shadow-xl shadow-leaf/20 hover:bg-bark transition-all active:scale-95">
+                    {{ libroEditando ? 'Guardar Cambios' : 'Registrar' }}
                 </button>
             </div>
         </form>
@@ -365,62 +290,42 @@
 }
 
 @if (modalUsuarioAbierto) {
-<div class="fixed inset-0 z-50 flex items-center justify-center p-4"
-    style="background:rgba(28,46,26,.6); backdrop-filter:blur(4px)">
-    <div class="bg-warmwhite rounded-3xl shadow-2xl w-full max-w-md border border-sage-pale">
-
-        <div class="flex items-center justify-between px-6 py-5 border-b border-sage-pale">
-            <h2 class="font-serif text-xl font-semibold text-bark">
-                {{ usuarioEditando ? 'Editar Usuario' : 'Nuevo Usuario' }}
+<div class="fixed inset-0 z-50 flex items-center justify-center p-4 bg-library/60 backdrop-blur-md">
+    <div class="bg-warmwhite rounded-[2.5rem] shadow-2xl w-full max-w-md border border-sage-pale overflow-hidden">
+        <div class="flex items-center justify-between px-8 py-6 border-b border-sage-pale">
+            <h2 class="font-serif text-2xl font-bold text-bark">
+                {{ usuarioEditando ? 'Configurar Perfil' : 'Invitar Nuevo Miembro' }}
             </h2>
-            <button (click)="cerrarModalUsuario()"
-                class="p-2 rounded-xl text-stone hover:text-bark hover:bg-mint transition-all">
-                <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+            <button (click)="cerrarModalUsuario()" class="p-2 rounded-xl text-stone hover:text-red-500 hover:bg-red-50 transition-all">
+                <svg class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5"><path d="M6 18L18 6M6 6l12 12" /></svg>
             </button>
         </div>
 
-        <form (ngSubmit)="guardarUsuario()" class="px-6 py-5 space-y-4">
-            <div>
-                <label class="text-[11px] font-semibold uppercase tracking-wider text-bark mb-1.5 block">Nombre</label>
-                <input type="text" [(ngModel)]="formUsuario.nombre" name="nombre" required class="w-full px-4 py-2.5 text-sm text-bark bg-cream border border-sage-pale rounded-xl
-                   focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all" />
+        <form (ngSubmit)="guardarUsuario()" class="px-8 py-8 space-y-5">
+            <div class="space-y-1.5">
+                <label class="text-[10px] font-bold uppercase tracking-widest text-bark ml-1">Nombre Completo</label>
+                <input type="text" [(ngModel)]="formUsuario.nombre" name="nombre" required class="w-full px-5 py-3 text-sm bg-cream/50 border border-sage-pale rounded-2xl focus:border-leaf focus:ring-4 focus:ring-leaf/5 outline-none transition-all" />
             </div>
-            <div>
-                <label class="text-[11px] font-semibold uppercase tracking-wider text-bark mb-1.5 block">Correo</label>
-                <input type="email" [(ngModel)]="formUsuario.correo" name="correo" required class="w-full px-4 py-2.5 text-sm text-bark bg-cream border border-sage-pale rounded-xl
-                   focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all" />
+            <div class="space-y-1.5">
+                <label class="text-[10px] font-bold uppercase tracking-widest text-bark ml-1">Correo Institucional</label>
+                <input type="email" [(ngModel)]="formUsuario.correo" name="correo" required class="w-full px-5 py-3 text-sm bg-cream/50 border border-sage-pale rounded-2xl focus:border-leaf focus:ring-4 focus:ring-leaf/5 outline-none transition-all" />
             </div>
-            <div>
-                <label
-                    class="text-[11px] font-semibold uppercase tracking-wider text-bark mb-1.5 block">Contraseña</label>
-                <input type="password" [(ngModel)]="formUsuario.contrasena" name="contrasena" class="w-full px-4 py-2.5 text-sm text-bark bg-cream border border-sage-pale rounded-xl
-                   focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all" />
+            <div class="space-y-1.5">
+                <label class="text-[10px] font-bold uppercase tracking-widest text-bark ml-1">Nueva Contraseña</label>
+                <input type="password" [(ngModel)]="formUsuario.contrasena" name="contrasena" class="w-full px-5 py-3 text-sm bg-cream/50 border border-sage-pale rounded-2xl focus:border-leaf focus:ring-4 focus:ring-leaf/5 outline-none transition-all" />
             </div>
-            <div>
-                <label class="text-[11px] font-semibold uppercase tracking-wider text-bark mb-1.5 block">Foto
-                    (URL)</label>
-                <input type="url" [(ngModel)]="formUsuario.foto" name="foto" class="w-full px-4 py-2.5 text-sm text-bark bg-cream border border-sage-pale rounded-xl
-                   focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all" />
-            </div>
-            <div>
-                <label class="text-[11px] font-semibold uppercase tracking-wider text-bark mb-1.5 block">Rol</label>
-                <select [(ngModel)]="formUsuario.rol" name="rol" class="w-full px-4 py-2.5 text-sm text-bark bg-cream border border-sage-pale rounded-xl
-                   focus:border-sage focus:ring-2 focus:ring-sage/20 outline-none transition-all">
+            <div class="space-y-1.5">
+                <label class="text-[10px] font-bold uppercase tracking-widest text-bark ml-1">Designación de Rol</label>
+                <select [(ngModel)]="formUsuario.rol" name="rol" class="w-full px-5 py-3 text-sm bg-cream/50 border border-sage-pale rounded-2xl focus:border-leaf focus:ring-4 focus:ring-leaf/5 outline-none transition-all">
                     <option value="ROLE_USUARIO">Usuario</option>
                     <option value="ROLE_ADMIN">Admin</option>
                 </select>
             </div>
 
-            <div class="flex justify-end gap-3 pt-2">
-                <button type="button" (click)="cerrarModalUsuario()" class="px-5 py-2.5 text-sm font-medium text-stone border border-sage-pale rounded-xl
-                   hover:bg-mint transition-all">
-                    Cancelar
-                </button>
-                <button type="submit" class="px-5 py-2.5 text-sm font-medium text-white bg-leaf rounded-xl
-                   shadow-md shadow-leaf/20 hover:bg-bark transition-all">
-                    {{ usuarioEditando ? 'Guardar cambios' : 'Agregar usuario' }}
+            <div class="flex justify-end gap-3 pt-6">
+                <button type="button" (click)="cerrarModalUsuario()" class="px-6 py-3 text-sm font-bold text-stone border border-sage-pale rounded-2xl hover:bg-mint transition-all">Cerrar</button>
+                <button type="submit" class="px-8 py-3 text-sm font-bold text-black bg-leaf rounded-2xl shadow-xl shadow-leaf/20 hover:bg-bark transition-all active:scale-95">
+                    {{ usuarioEditando ? 'Actualizar Perfil' : 'Crear Usuario' }}
                 </button>
             </div>
         </form>

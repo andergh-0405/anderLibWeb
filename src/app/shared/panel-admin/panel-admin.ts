@@ -97,7 +97,7 @@ export class PanelAdmin {
     }
   }
  
-  eliminarLibro(id: number): void {
+  eliminarLibro(id: string): void {
     if (!confirm('¿Eliminar este libro?')) return;
     this.servicioLibros.deleteBook(id).subscribe(() => {
       this.libros.update(lista => lista.filter(l => l.id !== id));

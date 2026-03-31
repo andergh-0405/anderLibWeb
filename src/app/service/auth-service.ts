@@ -30,7 +30,7 @@ export class AuthService {
           localStorage.setItem('usuario', JSON.stringify(usuarioCoincide));
           localStorage.setItem('rol', usuarioCoincide.rol);
           this.rolActual.set(usuarioCoincide.rol);
-          this.servicioUsuario.verUsuarioAutenticado(usuarioCoincide);
+          this.servicioUsuario.usuarioAutenticado();
           this.sesionIniciada.set(true);
 
           return true;
@@ -46,6 +46,6 @@ export class AuthService {
     this.sesionIniciada.set(false);
     localStorage.removeItem('rol');
     this.rolActual.set(null);
-    this.servicioUsuario.verUsuarioAutenticado(null);
+    this.servicioUsuario.usuarioAutenticado();
   }
 }

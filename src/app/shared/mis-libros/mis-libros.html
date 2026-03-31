@@ -1,0 +1,85 @@
+<div class="min-h-screen bg-cream py-16 px-4 sm:px-6 lg:px-10">
+  <div class="max-w-7xl mx-auto">
+
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-sage-pale pb-8">
+      <div>
+        <span class="text-leaf font-bold tracking-[0.2em] text-xs uppercase mb-2 block">Historial</span>
+        <h1 class="font-serif text-5xl font-bold text-bark">Mis <em class="italic">Compras</em></h1>
+        <p class="text-stone text-sm mt-3">
+          Tienes {{ compras().length }} compras con {{ totalLibros() }} libros en total.
+        </p>
+      </div>
+    </div>
+
+    <!-- Lista de compras -->
+    @if (compras().length > 0) {
+      <div class="space-y-10">
+        @for (compra of compras(); track $index) {
+          <div class="bg-white rounded-[2rem] border border-sage-pale shadow-sm overflow-hidden">
+
+            <!-- Encabezado de la compra -->
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between px-8 py-5 bg-mint/30 border-b border-sage-pale">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 bg-leaf/10 rounded-full flex items-center justify-center">
+                  <svg class="w-5 h-5 text-leaf" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"/>
+                  </svg>
+                </div>
+                <div>
+                  <p class="text-xs font-bold uppercase tracking-widest text-stone">Compra #{{ $index + 1 }}</p>
+                  <p class="text-sm font-semibold text-bark">{{ compra.fecha }}</p>
+                </div>
+              </div>
+              <div class="mt-3 sm:mt-0 text-right">
+                <p class="text-xs text-stone/60 uppercase font-bold">Total pagado</p>
+                <p class="font-serif text-2xl font-bold text-bark">${{ compra.total | number:'1.2-2' }}</p>
+              </div>
+            </div>
+
+            <!-- Libros de esta compra -->
+            <div class="p-6 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+              @for (libro of compra.items; track libro.id) {
+                <div class="group flex gap-4 items-center p-4 rounded-2xl border border-sage-pale hover:shadow-md hover:-translate-y-1 transition-all duration-300 bg-white">
+                  <img [src]="libro.imagen" [alt]="libro.titulo"
+                    class="w-14 h-20 object-cover rounded-xl shadow-sm shrink-0 group-hover:scale-105 transition-transform duration-300">
+                  <div class="min-w-0">
+                    <h3 class="font-serif font-bold text-bark text-sm leading-tight truncate">
+                      {{ libro.titulo }}
+                    </h3>
+                    <p class="text-xs text-stone italic mt-0.5 truncate">{{ libro.autor }}</p>
+                    <span class="inline-block mt-2 text-[10px] font-bold text-leaf uppercase tracking-tight bg-mint px-2 py-0.5 rounded-lg">
+                      {{ libro.genero }}
+                    </span>
+                    <p class="text-sm font-bold text-bark mt-1">${{ libro.precio }}</p>
+                  </div>
+                </div>
+              }
+            </div>
+
+          </div>
+        }
+      </div>
+
+    } @else {
+      <!-- Estado vacío -->
+      <div class="py-24 flex flex-col items-center text-center">
+        <div class="w-24 h-24 bg-mint/30 rounded-full flex items-center justify-center mb-6 text-leaf">
+          <svg class="w-12 h-12" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+            <path d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/>
+          </svg>
+        </div>
+        <h2 class="font-serif text-3xl font-bold text-bark">Aún no tienes compras</h2>
+        <p class="text-stone mt-3 max-w-sm mx-auto text-sm">
+          Visita nuestro catálogo, agrega libros al carrito y confirma tu compra.
+        </p>
+        <button routerLink="/libros"
+          class="mt-8 px-10 py-3.5 bg-leaf text-white font-bold rounded-2xl shadow-xl shadow-leaf/20 hover:bg-bark transition-all active:scale-95">
+          Explorar Catálogo
+        </button>
+      </div>
+    }
+
+  </div>
+</div>

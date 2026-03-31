@@ -1,0 +1,93 @@
+<div class="min-h-screen bg-cream py-12 px-4 sm:px-6 lg:px-10">
+  <div class="max-w-6xl mx-auto">
+
+    <div class="mb-10">
+      <h1 class="font-serif text-4xl font-bold text-bark italic">Tu Bolsa de
+        <span class="text-leaf">Lectura</span>
+      </h1>
+      <p class="text-stone text-sm mt-2 font-medium uppercase tracking-widest">
+        Tienes {{ carrito().length }} libros listos
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-10 items-start">
+
+      <!-- Lista de libros -->
+      <div class="lg:col-span-2 space-y-4">
+        @for (item of carrito(); track item.id) {
+          <div class="bg-white rounded-[2rem] p-5 border border-sage-pale flex flex-col sm:flex-row items-center gap-6 shadow-sm hover:shadow-xl transition-all duration-500">
+            <img [src]="item.imagen" [alt]="item.titulo"
+              class="w-24 h-32 object-cover rounded-xl shadow-md shrink-0">
+            <div class="flex-1 text-center sm:text-left">
+              <h3 class="font-serif text-xl font-bold text-bark">{{ item.titulo }}</h3>
+              <p class="text-sm text-stone italic mb-2">por {{ item.autor }}</p>
+              <span class="inline-flex px-3 py-1 bg-mint text-leaf text-[10px] font-bold uppercase rounded-lg">
+                {{ item.genero }}
+              </span>
+            </div>
+            <div class="flex flex-col items-center sm:items-end gap-3 px-4">
+              <span class="text-2xl font-bold text-bark font-serif">${{ item.precio }}</span>
+              <button (click)="eliminar(item.id)"
+                class="text-xs font-bold text-red-400 hover:text-red-600 transition-colors flex items-center gap-1">
+                <svg class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/>
+                </svg>
+                Quitar
+              </button>
+            </div>
+          </div>
+        } @empty {
+          <div class="bg-white/50 border-2 border-dashed border-sage-pale rounded-[3rem] py-20 flex flex-col items-center text-center">
+            <h2 class="font-serif text-2xl font-bold text-bark">Tu carrito está vacío</h2>
+            <p class="text-stone mt-2 max-w-xs px-4 text-sm">Aún no has elegido tu próxima gran aventura.</p>
+            <button routerLink="/libros"
+              class="mt-8 px-8 py-3 bg-leaf text-white font-bold rounded-2xl shadow-lg hover:bg-bark transition-all">
+              Explorar Catálogo
+            </button>
+          </div>
+        }
+      </div>
+
+      <!-- Resumen -->
+      <aside class="lg:sticky lg:top-28">
+        <div class="bg-bark rounded-[2.5rem] p-8 text-parchment shadow-2xl">
+          <h2 class="font-serif text-2xl font-bold mb-8 border-b border-parchment/10 pb-4">
+            Resumen de <span class="text-leaf">Compra</span>
+          </h2>
+          <div class="space-y-5">
+            <div class="flex justify-between text-sm">
+              <span class="text-parchment/50">Subtotal ({{ carrito().length }} libros)</span>
+              <span class="font-bold">${{ subtotal() | number:'1.2-2' }}</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-parchment/50">Envío</span>
+              <span class="text-leaf font-bold text-[10px] uppercase">Gratis</span>
+            </div>
+            <div class="flex justify-between text-sm">
+              <span class="text-parchment/50">IVA (15%)</span>
+              <span class="font-bold">${{ iva() | number:'1.2-2' }}</span>
+            </div>
+            <div class="border-t border-parchment/10 pt-4 flex justify-between items-end">
+              <div>
+                <p class="text-[10px] font-bold uppercase text-leaf mb-1">Total</p>
+                <p class="font-serif text-4xl font-bold">${{ total() | number:'1.2-2' }}</p>
+              </div>
+            </div>
+          </div>
+
+          <button (click)="procederAlPago()"
+            [disabled]="carrito().length === 0"
+            class="w-full mt-10 py-5 bg-leaf hover:bg-white hover:text-bark rounded-2xl font-bold text-sm shadow-xl transition-all disabled:opacity-20 disabled:cursor-not-allowed">
+            Confirmar Compra
+          </button>
+        </div>
+
+        <a routerLink="/libros"
+          class="mt-6 flex items-center justify-center gap-2 text-stone hover:text-leaf transition-colors text-xs font-bold uppercase tracking-widest">
+          ← Seguir Explorando
+        </a>
+      </aside>
+    </div>
+  </div>
+</div>

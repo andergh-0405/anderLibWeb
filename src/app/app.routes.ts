@@ -8,6 +8,8 @@ import { Registrarse } from './shared/registrarse/registrarse';
 import { PanelAdmin } from './shared/panel-admin/panel-admin';
 import { canActiveGuard } from './guards/can-active-guard';
 import { canMatchGuard } from './guards/can-match-guard';
+import { CarritoPage } from './features/carrito-page/carrito-page';
+import { MisLibrosPage } from './features/mis-libros-page/mis-libros-page';
 
 export const routes: Routes = [
     {path:'',component:HomePage},
@@ -16,6 +18,8 @@ export const routes: Routes = [
     {path:'login',component:LoginPage,canActivate:[canActiveGuard]},
     {path:'iniciarSesion',component:IniciarSesion},
     {path:'registrarse',component:Registrarse},
-    {path:'dashboard',component:PanelAdmin,canMatch:[canMatchGuard]}
+    {path:'dashboard',component:PanelAdmin,canMatch:[canMatchGuard]},
+    {path:'carrito',component:CarritoPage},
+    {path:'misLibros',component:MisLibrosPage}
 
 ];
