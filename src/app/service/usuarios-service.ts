@@ -13,23 +13,9 @@ export class UsuariosService {
   private API_FIREBASE = 'https://anderlib-default-rtdb.firebaseio.com';
   
   
-  usuarioAutenticado = signal<Usuarios | null>(null);
-
-  constructor() {
-    
-    const guardado = localStorage.getItem('usuario');
-    if (guardado) {
-      this.usuarioAutenticado.set(JSON.parse(guardado));
-    }
-    effect(() => {
-      const user = this.usuarioAutenticado();
-      if (user) {
-        localStorage.setItem('usuario', JSON.stringify(user));
-      } else {
-        localStorage.removeItem('usuario');
-      }
-    });
-  }
+  usuarioAutenticado = signal<Usuarios | null>(
+    JSON.parse(localStorage.getItem('usuario') || 'null')
+  );
 
   setUsuario(usuario: Usuarios | null): void {
     this.usuarioAutenticado.set(usuario);

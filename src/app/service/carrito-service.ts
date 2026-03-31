@@ -6,7 +6,7 @@ import { Libros } from '../models/libros';
 })
 export class CarritoService {
 
-  
+
   private _carrito = signal<Libros[]>(this.cargarDesdeStorage());
 
   public carrito = this._carrito.asReadonly();
@@ -33,7 +33,7 @@ export class CarritoService {
   }
 
   agregar(libro: Libros): boolean {
-    
+
     const existe = this._carrito().some(l => l.id == libro.id);
     if (existe) return false;
 

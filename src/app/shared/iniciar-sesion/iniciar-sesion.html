@@ -1,99 +1,86 @@
-<div class="flex items-center justify-center min-h-screen px-4 py-12 bg-cream relative overflow-hidden">
+<div class="flex items-center justify-center min-h-screen px-4 py-12 bg-stone-100 relative overflow-hidden font-sans">
 
-  <div class="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3 opacity-40"
-    style="background: radial-gradient(circle, rgba(122,158,126,.15), transparent 70%)"></div>
-  <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full pointer-events-none translate-y-1/2 -translate-x-1/3 opacity-30"
-    style="background: radial-gradient(circle, rgba(61,97,66,.1), transparent 70%)"></div>
+  <div class="absolute top-0 right-0 w-96 h-96 rounded-full pointer-events-none -translate-y-1/2 translate-x-1/3 opacity-20 bg-emerald-500 blur-3xl"></div>
+  <div class="absolute bottom-0 left-0 w-80 h-80 rounded-full pointer-events-none translate-y-1/2 -translate-x-1/3 opacity-20 bg-stone-400 blur-3xl"></div>
 
-  <div class="flex w-full max-w-sm mx-auto overflow-hidden rounded-[2.5rem] shadow-2xl shadow-bark/15 lg:max-w-4xl border border-sage-pale/60 bg-warmwhite">
+  <div class="flex w-full max-w-sm mx-auto overflow-hidden rounded-[2.5rem] shadow-2xl lg:max-w-4xl border border-stone-200 bg-white">
 
-    <div class="hidden lg:block lg:w-1/2 relative overflow-hidden"
-      style="background: linear-gradient(160deg, #1C2E1A 0%, #2A3D28 55%, #1A2718 100%);">
-
+    <div class="hidden lg:block lg:w-1/2 relative overflow-hidden bg-stone-900">
       <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=75"
-        class="absolute inset-0 w-full h-full object-cover mix-blend-overlay opacity-30" alt="Librería decorativa" />
+        class="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-luminosity" alt="Librería" />
+      
+      <div class="absolute inset-0 bg-gradient-to-br from-stone-900 via-stone-900/80 to-emerald-900/40"></div>
 
-      <div class="absolute right-0 top-0 h-full w-[2px]"
-        style="background: linear-gradient(180deg, transparent 5%, #D4A853 35%, #D4A853 65%, transparent 95%); opacity: .3;">
-      </div>
+      <div class="absolute right-0 top-0 h-full w-[2px] bg-gradient-to-b from-transparent via-amber-400/40 to-transparent"></div>
 
       <div class="relative z-10 flex flex-col justify-between h-full p-12">
-
         <a routerLink="/" class="flex items-center gap-3 group">
-          <div class="w-10 h-10 rounded-xl flex items-center justify-center shadow-lg transition-transform group-hover:scale-110"
-            style="background:rgba(61,97,66,0.8); border:1px solid rgba(168,197,160,0.3);">
+          <div class="w-10 h-10 rounded-xl flex items-center justify-center bg-emerald-700/80 border border-emerald-500/30 shadow-lg transition-transform group-hover:scale-110">
             <svg class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
               <path d="M4 19.5A2.5 2.5 0 016.5 17H20" />
               <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z" />
             </svg>
           </div>
-          <span class="font-serif text-2xl font-semibold tracking-tight" style="color:#F5EDD6">AnderLib</span>
+          <span class="text-2xl font-bold tracking-tight text-stone-100">Ander<span class="text-emerald-400">Lib</span></span>
         </a>
 
         <div class="space-y-6">
-          <div class="w-10 h-[2px]" style="background:#D4A853"></div>
-          <blockquote class="font-serif text-3xl leading-[1.3] font-medium" style="color:#F5EDD6">
+          <div class="w-12 h-1 bg-amber-500 rounded-full"></div>
+          <blockquote class="text-3xl leading-tight font-serif italic text-stone-100">
             "Un lector vive mil vidas antes de morir."
           </blockquote>
-          <p class="text-xs tracking-[.25em] uppercase font-bold" style="color:rgba(245,237,214,0.5)">— George R.R. Martin</p>
+          <p class="text-xs tracking-[.25em] uppercase font-bold text-stone-400">— George R.R. Martin</p>
 
-          <div class="flex gap-10 pt-8 border-t" style="border-color:rgba(245,237,214,0.15)">
+          <div class="flex gap-10 pt-8 border-t border-white/10">
             <div>
-              <p class="font-serif text-2xl font-bold" style="color:#D4A853">12k<span class="text-sm font-sans ml-0.5">+</span></p>
-              <p class="text-[10px] mt-1 uppercase tracking-widest font-bold" style="color:rgba(245,237,214,0.4)">Títulos</p>
+              <p class="text-2xl font-bold text-amber-400">12k<span class="text-sm font-sans ml-0.5 text-stone-400">+</span></p>
+              <p class="text-[10px] mt-1 uppercase tracking-widest font-bold text-stone-500">Títulos</p>
             </div>
             <div>
-              <p class="font-serif text-2xl font-bold" style="color:#D4A853">10k<span class="text-sm font-sans ml-0.5">+</span></p>
-              <p class="text-[10px] mt-1 uppercase tracking-widest font-bold" style="color:rgba(245,237,214,0.4)">Lectores</p>
+              <p class="text-2xl font-bold text-amber-400">10k<span class="text-sm font-sans ml-0.5 text-stone-400">+</span></p>
+              <p class="text-[10px] mt-1 uppercase tracking-widest font-bold text-stone-500">Lectores</p>
             </div>
           </div>
         </div>
-
       </div>
     </div>
 
-    <div class="w-full px-8 py-12 lg:w-1/2 flex flex-col justify-center">
-      <form (ngSubmit)="iniciarSesion()">
+    <div class="w-full px-8 py-12 lg:w-1/2 flex flex-col justify-center bg-white">
+      <form (ngSubmit)="iniciarSesion()" #loginForm="ngForm">
         <div class="mb-10 text-center lg:text-left">
-          <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[.2em] uppercase text-leaf mb-3">
-            <span class="w-5 h-px bg-sage-pale"></span>Bienvenido de nuevo
+          <span class="inline-flex items-center gap-2 text-[10px] font-bold tracking-[.2em] uppercase text-emerald-700 mb-3">
+            <span class="w-5 h-px bg-stone-200"></span>Bienvenido de nuevo
           </span>
-          <h1 class="font-serif text-4xl font-bold text-bark leading-tight">Iniciar sesión</h1>
-          <p class="text-stone text-sm mt-3 italic">Accede a tu biblioteca personal</p>
+          <h1 class="text-4xl font-bold text-stone-800 leading-tight">Iniciar sesión</h1>
+          <p class="text-stone-500 text-sm mt-3 italic">Accede a tu biblioteca personal</p>
         </div>
 
         <div class="space-y-2 mb-5">
-          <label class="text-[10px] font-bold uppercase tracking-widest text-bark ml-1">Correo electrónico</label>
+          <label class="text-[10px] font-bold uppercase tracking-widest text-stone-600 ml-1">Correo electrónico</label>
           <div class="relative group">
-            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone/40 group-focus-within:text-leaf transition-colors">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 group-focus-within:text-emerald-600 transition-colors">
               <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                 <path d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
               </svg>
             </span>
-            <input type="email" [(ngModel)]="correo" name="correo" required 
-              placeholder="nombre@ejemplo.com" 
-              class="w-full pl-12 pr-4 py-4 rounded-2xl bg-cream/50 border border-sage-pale text-sm text-bark outline-none transition-all duration-300 focus:border-leaf focus:ring-4 focus:ring-leaf/5 focus:bg-white" />
+            <input type="email" [(ngModel)]="correo" name="correo" required placeholder="nombre@ejemplo.com"
+              class="w-full pl-12 pr-4 py-4 rounded-2xl bg-stone-50 border border-stone-200 text-sm text-stone-800 outline-none transition-all duration-300 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 focus:bg-white" />
           </div>
         </div>
 
         <div class="space-y-2 mb-8">
-          <div class="flex items-center justify-between px-1">
-            <label class="text-[10px] font-bold uppercase tracking-widest text-bark">Contraseña</label>
-            <a routerLink="/recuperar" class="text-[11px] font-medium text-leaf hover:text-bark transition-colors underline decoration-leaf/20 underline-offset-4">
-              ¿Olvidaste tu contraseña?
-            </a>
-          </div>
           <div class="relative group">
-            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone/40 group-focus-within:text-leaf transition-colors">
+            <span class="absolute left-4 top-1/2 -translate-y-1/2 text-stone-400 group-focus-within:text-emerald-600 transition-colors">
               <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
                 <path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
               </svg>
             </span>
-            <input [type]="mostrarPassword ? 'text' : 'password'" [(ngModel)]="contrasena" name="contrasena" required 
-              placeholder="••••••••" 
-              class="w-full pl-12 pr-12 py-4 rounded-2xl bg-cream/50 border border-sage-pale text-sm text-bark outline-none transition-all duration-300 focus:border-leaf focus:ring-4 focus:ring-leaf/5 focus:bg-white" />
+            <input [type]="mostrarPassword ? 'text' : 'password'" [(ngModel)]="contrasena" name="contrasena" required
+              placeholder="••••••••"
+              class="w-full pl-12 pr-12 py-4 rounded-2xl bg-stone-50 border border-stone-200 text-sm text-stone-800 outline-none transition-all duration-300 focus:border-emerald-500 focus:ring-4 focus:ring-emerald-500/10 focus:bg-white" />
+            
             <button type="button" (click)="mostrarPassword = !mostrarPassword"
-              class="absolute right-4 top-1/2 -translate-y-1/2 text-stone/30 hover:text-leaf transition-colors p-1">
+              class="absolute right-4 top-1/2 -translate-y-1/2 text-stone-400 hover:text-emerald-600 transition-colors p-1">
               @if (!mostrarPassword) {
                 <svg class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path d="M2.036 12.322a1.012 1.012 0 010-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z" /><path d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
               } @else {
@@ -103,23 +90,23 @@
           </div>
         </div>
 
-        <button type="submit" 
-          class="w-full flex items-center justify-center gap-3 px-6 py-4 text-sm font-bold text-white bg-leaf rounded-2xl shadow-xl shadow-leaf/20 hover:bg-bark hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] group">
+        <button type="submit" [disabled]="!loginForm.form.valid"
+          class="w-full flex items-center justify-center gap-3 px-6 py-4 text-sm font-bold text-white bg-emerald-700 rounded-2xl shadow-xl shadow-emerald-900/20 hover:bg-stone-900 hover:-translate-y-1 transition-all duration-300 active:scale-[0.98] group disabled:opacity-50 disabled:hover:translate-y-0">
           <span>Entrar a mi biblioteca</span>
           <svg class="w-5 h-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.5">
             <path stroke-linecap="round" stroke-linejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
           </svg>
         </button>
-
-        <div class="mt-10 flex items-center justify-center gap-4">
-          <div class="flex-1 h-px bg-sage-pale/60"></div>
-          <a routerLink="/registrarse" 
-            class="text-[11px] font-bold text-stone/50 uppercase tracking-[.2em] hover:text-leaf transition-colors whitespace-nowrap">
-            Crear cuenta nueva
-          </a>
-          <div class="flex-1 h-px bg-sage-pale/60"></div>
-        </div>
       </form>
+
+      <div class="mt-10 flex items-center justify-center gap-4">
+        <div class="flex-1 h-px bg-stone-200"></div>
+        <a routerLink="/registrarse"
+          class="text-[11px] font-bold text-stone-400 uppercase tracking-[.2em] hover:text-emerald-700 transition-colors whitespace-nowrap">
+          Crear cuenta nueva
+        </a>
+        <div class="flex-1 h-px bg-stone-200"></div>
+      </div>
     </div>
 
   </div>

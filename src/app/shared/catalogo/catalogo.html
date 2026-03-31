@@ -95,7 +95,7 @@
               [class]="estaEnCarrito(book.id)
         ? 'flex items-center gap-1.5 bg-gray-100 text-gray-400 text-xs font-medium px-4 py-2.5 rounded-full cursor-not-allowed'
         : 'flex items-center gap-1.5 bg-green-100 text-green-700 text-xs font-medium px-4 py-2.5 rounded-full hover:bg-leaf hover:text-white transition-all duration-200'">
-              {{ estaEnCarrito(book.id) ? '✅ Agregado' : '🛒 Al carrito' }}
+              {{ estaEnCarrito(book.id) ? '✅ Agregado' : '🛒Añadir al carrito' }}
             </button>
             } @else {
             <button (click)="mensaje()"

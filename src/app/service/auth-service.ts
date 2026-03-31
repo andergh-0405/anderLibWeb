@@ -1,13 +1,8 @@
 import { inject, Injectable, signal } from '@angular/core';
-import { getAuth, signInWithEmailAndPassword, signOut, User } from 'firebase/auth';
-import { Usuarios } from '../models/usuarios';
-import { firebaseConfig } from '../config/firebase.config';
-import { getApp, getApps, initializeApp } from 'firebase/app';
-import { Router } from '@angular/router';
 import { UsuariosService } from './usuarios-service';
+import { Router } from '@angular/router';
 import { map, Observable } from 'rxjs';
-
-const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
+import { CarritoService } from './carrito-service';
 
 @Injectable({
   providedIn: 'root',
@@ -15,37 +10,39 @@ const app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApp();
 export class AuthService {
 
   private servicioUsuario = inject(UsuariosService);
-  sesionIniciada = signal<boolean | null>(localStorage.getItem('sesion') === 'true');
-  public rolActual = signal<string | null>(localStorage.getItem('rol'));
+  private carritoService = inject(CarritoService);
+  private router = inject(Router);
 
-
+  sesionIniciada = signal<boolean>(localStorage.getItem('sesion') === 'true');
+  rolActual = signal<string | null>(localStorage.getItem('rol'));
 
   login(correo: string, contrasena: string): Observable<boolean> {
     return this.servicioUsuario.getUsuarios().pipe(
       map(usuarios => {
-        const usuarioCoincide = usuarios.find(u => u.correo === correo &&
-          u.contrasena === contrasena);
-        if (usuarioCoincide) {
-          localStorage.setItem('sesion', 'true');
-          localStorage.setItem('usuario', JSON.stringify(usuarioCoincide));
-          localStorage.setItem('rol', usuarioCoincide.rol);
-          this.rolActual.set(usuarioCoincide.rol);
-          this.servicioUsuario.usuarioAutenticado();
-          this.sesionIniciada.set(true);
+        const usuario = usuarios.find(
+          u => u.correo === correo && u.contrasena === contrasena
+        );
 
+        if (usuario) {
+          localStorage.setItem('sesion', 'true');
+          localStorage.setItem('rol', usuario.rol);
+          this.sesionIniciada.set(true);
+          this.rolActual.set(usuario.rol);
+          this.servicioUsuario.setUsuario(usuario); 
           return true;
         }
         return false;
       })
-    )
+    );
   }
 
-  logout() {
+  logout(): void {
+    this.servicioUsuario.setUsuario(null); 
+    this.carritoService.vaciar();        
     localStorage.removeItem('sesion');
-    localStorage.removeItem('usuario');
-    this.sesionIniciada.set(false);
     localStorage.removeItem('rol');
+    this.sesionIniciada.set(false);
     this.rolActual.set(null);
-    this.servicioUsuario.usuarioAutenticado();
+    this.router.navigate(['/libros']);
   }
 }

@@ -3,11 +3,11 @@ import { UsuariosService } from '../../service/usuarios-service';
 import { AuthService } from '../../service/auth-service';
 import { Usuarios } from '../../models/usuarios';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-registrarse',
-  imports: [FormsModule],
+  imports: [FormsModule,RouterLink],
   templateUrl: './registrarse.html',
   styleUrl: './registrarse.css',
 })
