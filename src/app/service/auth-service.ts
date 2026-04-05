@@ -42,6 +42,7 @@ export class AuthService {
     this.carritoService.vaciar();        
     localStorage.removeItem('sesion');
     localStorage.removeItem('rol');
+    localStorage.removeItem('usuario');
     this.sesionIniciada.set(false);
     this.rolActual.set(null);
     this.router.navigate(['/libros']);
