@@ -8,6 +8,7 @@ import { CarritoService } from '../../service/carrito-service';
 @Component({
   selector: 'app-nav-bar',
   imports: [RouterLink, RouterLinkActive, CommonModule], 
+   standalone: true,
   templateUrl: './nav-bar.html',
   styleUrl: './nav-bar.css',
 })

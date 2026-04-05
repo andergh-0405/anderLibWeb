@@ -26,6 +26,7 @@ export class AuthService {
         if (usuario) {
           localStorage.setItem('sesion', 'true');
           localStorage.setItem('rol', usuario.rol);
+          localStorage.setItem('usuario', JSON.stringify(usuario)); 
           this.sesionIniciada.set(true);
           this.rolActual.set(usuario.rol);
           this.servicioUsuario.setUsuario(usuario); 

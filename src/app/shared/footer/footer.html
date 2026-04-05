@@ -9,21 +9,23 @@
             </a>
 
             <div class="flex flex-wrap justify-center mt-6 -mx-4">
-                <a routerLink="/" class="mx-4 text-sm text-slate-600 transition-colors duration-300 hover:text-blue-600 dark:text-slate-300 dark:hover:text-white"> 
+                <button routerLink="/" class="mx-4 text-sm text-slate-600 transition-colors duration-300 hover:text-blue-600 dark:text-slate-300 dark:hover:text-white"> 
                     Inicio
-                </a>
+                </button>
                 
-                <a routerLink="/libros" class="mx-4 text-sm text-slate-600 transition-colors duration-300 hover:text-blue-600 dark:text-slate-300 dark:hover:text-white"> 
+                <button routerLink="/libros" class="mx-4 text-sm text-slate-600 transition-colors duration-300 hover:text-blue-600 dark:text-slate-300 dark:hover:text-white"> 
                     Libros 
-                </a>
+                </button>
                 
-                <a routerLink="/contacto" class="mx-4 text-sm text-slate-600 transition-colors duration-300 hover:text-blue-600 dark:text-slate-300 dark:hover:text-white"> 
+                <button routerLink="/contacto" class="mx-4 text-sm text-slate-600 transition-colors duration-300 hover:text-blue-600 dark:text-slate-300 dark:hover:text-white"> 
                     Contacto 
-                </a>
-
-                <a routerLink="/iniciarSesion" class="mx-4 text-sm text-slate-600 transition-colors duration-300 hover:text-blue-600 dark:text-slate-300 dark:hover:text-white"> 
+                </button>
+                @if(!usuarioAutenticado()){
+                    <button routerLink="/iniciarSesion" class="mx-4 text-sm text-slate-600 transition-colors duration-300 hover:text-blue-600 dark:text-slate-300 dark:hover:text-white"> 
                     Iniciar Sesión 
-                </a>
+                </button>
+                }
+                
             </div>
 
             <p class="max-w-md mt-6 text-slate-500 dark:text-slate-400 text-sm italic leading-relaxed">
